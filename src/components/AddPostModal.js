@@ -10,7 +10,7 @@ import {
     SafeAreaView,
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import {Icon} from 'react-native-elements'
+import {Icon} from '@rneui/themed'
 import { TextInput } from 'react-native-gesture-handler'
 
 const AddPostButton = ({ post, onPress }) => {

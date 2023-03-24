@@ -7,11 +7,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export default ({ title, onPress, loading, }) => {
+export default ({ title, onPress, loading, ...rest}) => {
   return (
     <TouchableOpacity 
     onPress={onPress}
-    style={styles.formButton}>
+    style={styles.formButton}
+    {...rest}>
       {
         loading?
         <ActivityIndicator color={'#fff'}/>
