@@ -2,15 +2,16 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Colors } from '../../constants/index'
 import {Container} from '../../components/container/Container'
+import FormButton from '../../components/form/formButton/FormButton'
 
-export const ProfileScreenView = () => {
+export const ProfileScreenView = (handleSignOut) => {
   return (
     <Container>
       <View style={styles.userInfo}>
 
       </View>
       <View style={[styles.userInfo,{backgroundColor:'tomato'}]}>
-
+        <FormButton title={'Sign Out'} onPress={handleSignOut}/>
       </View>
     </Container>
   )

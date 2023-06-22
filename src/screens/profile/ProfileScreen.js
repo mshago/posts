@@ -10,7 +10,7 @@ import {
     Platform,
     SafeAreaView,
 } from 'react-native'
-// import { AuthContext } from '../../hooks/authContext'
+import { AuthContext } from '../../contexts/authContext'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 //components
@@ -21,7 +21,7 @@ import {getData} from '../../utils/asyncStorage'
 import { fetchUserInfo } from '../../helpers/auth'
 
 export const ProfileScreen = ({navigation}) => {
-    // const { signOut } = useContext(AuthContext)
+    const { signOut } = useContext(AuthContext)
     const [user, setUser] = useState([])
     const [posts, setPosts] = useState([])
     const [error, setError] = useState(false)
@@ -36,6 +36,10 @@ export const ProfileScreen = ({navigation}) => {
         }
         getUserInfo()
     },[])
+
+    const handleSignOut = () => {
+        signOut()
+    }
     // useEffect(() => {
     //     setLoading(true)
     //     AsyncStorage.getItem('userToken')
@@ -78,7 +82,7 @@ export const ProfileScreen = ({navigation}) => {
     // },[])
 
     return (
-        <ProfileScreenView/>
+        <ProfileScreenView handleSignOut={handleSignOut}/>
     )
     // return (
     //     <SafeAreaView style={{flex:1}}>
